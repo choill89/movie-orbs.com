@@ -1,0 +1,17 @@
+{
+  "name": "movie-orbs",
+  "version": "1.0.0",
+  "description": "영화를 통해 나를 이해하는 AI 기반 자기 성찰 플랫폼",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx http-server -p 3000"
+  },
+  "keywords": [
+    "movie",
+    "orbs",
+    "ai",
+    "self-reflection"
+  ],
+  "author": "Antigravity",
+  "license": "MIT"
+}
