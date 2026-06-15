@@ -14,24 +14,6 @@
 ### **1.2 시스템 아키텍처**
 본 프로젝트는 데이터 페칭, 클라이언트 상태 동기화, 3D 그래픽스 렌더링 파이프라인이 유기적으로 연결된 단일 페이지 애플리케이션(SPA)입니다.
 
-```text
-[ TMDB API / Backend ]
-         │ (Axios / 비동기 랩퍼)
-         ▼
-[ Data Normalizer & Weight Calculator ] ── (정규화 및 3D 좌표 변환 연산)
-         │
-         ▼
-[ Zustand Global State Store ] ────────── (필터링, 검색, 북마크 상태 관리)
-         │
-         ├──► [ React Next.js DOM Layer ] (상세 모달, UI 레이아웃, SEO)
-         │
-         └──► [ React Three Fiber (R3F) ]  (WebGL 렌더링 파이프라인)
-                   │
-                   └──► [ Canvas Shader Material ] (오브 발광 및 물리 쉐이더)
-
-
----
-
 ### **Movie Orbs란?**
 `movie-orbs.com`은 사용자가 영화 데이터를 직관적이고 몰입감 있게 탐색할 수 있도록 돕는 웹 서비스입니다. 기존의 지루한 리스트 형태에서 벗어나, 트렌디한 시각적 요소(Orbs/Spheres)와 인터랙티브한 UI를 통해 새로운 방식의 영화 검색 및 추천 경험을 제공합니다.
 
