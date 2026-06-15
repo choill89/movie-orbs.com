@@ -1,7 +1,7 @@
 # 🔮 Movie Orbs (movie-orbs.com)
 
 `Movie Orbs`는 영화 메타데이터의 다차원적 관계를 3D 입체 공간(Orb) 상에 매핑하고, 사용자에게 인터랙티브한 시각적 탐색 경험을 제공하는 고성능 프론트엔드 데이터 시각화 웹 애플리케이션입니다. 
-
+영화 정보를 시각적이고 탐색하기 쉬운 '오브(Orbs)' 형태로 제공합니다. 프로젝트에 대한 상세 정보는 아래의 드롭다운 메뉴를 클릭하여 확인하실 수 있습니다.
 ---
 
 <details>
@@ -29,75 +29,63 @@
                    │
                    └──► [ Canvas Shader Material ] (오브 발광 및 물리 쉐이더)
 
-import React from 'react';
-import { Canvas } from '@react-three/fiber';
-import { MovieOrbContainer } from './components/3d/MovieOrbContainer';
 
-export default function MovieStage() {
-  const sampleData = [
-    { id: 1, title: "Inception", genres: ["Sci-Fi", "Action"], popularity: 85.4 },
-    { id: 2, title: "Interstellar", genres: ["Sci-Fi", "Drama"], popularity: 92.1 }
-  ];
+---
 
-  return (
-    <div style={{ width: '100vw', height: '100vh' }}>
-      <Canvas camera={{ position: [0, 0, 15], fov: 60 }}>
-        <ambientLight intensity={0.5} />
-        <pointLight position={[10, 10, 10]} />
-        
-        {/* 영화 데이터 어레이 전송 및 공간 자동 매핑 */}
-        <MovieOrbContainer movies={sampleData} speedFactor={1.2}/>
-      </Canvas>
-    </div>
-  );
-}
+### **Movie Orbs란?**
+`movie-orbs.com`은 사용자가 영화 데이터를 직관적이고 몰입감 있게 탐색할 수 있도록 돕는 웹 서비스입니다. 기존의 지루한 리스트 형태에서 벗어나, 트렌디한 시각적 요소(Orbs/Spheres)와 인터랙티브한 UI를 통해 새로운 방식의 영화 검색 및 추천 경험을 제공합니다.
 
-import { create } from 'zustand';
+* **배포 주소:** [https://movie-orbs.com](https://movie-orbs.com) (예시)
+* **주요 타겟:** 독창적인 UI로 영화 트렌드를 파악하고, 개인화된 영화 추천을 받고 싶은 모든 영화 마니아.
 
-interface MovieStore {
-  selectedOrbId: number | null;
-  currentGenreFilter: string;
-  selectOrb: (id: number) => void;
-  setGenreFilter: (genre: string) => void;
-}
+</div>
+</details>
 
-export const useMovieStore = create<MovieStore>((set) => ({
-  selectedOrbId: null,
-  currentGenreFilter: 'All',
-  selectOrb: (id) => set({ selectedOrbId: id }),
-  setGenreFilter: (genre) => set({ currentGenreFilter: genre }),
-}));
+<details>
+<summary>🛠️ 2. 기술 스택 (Tech Stack)</summary>
+<div id="tech-stack" markdown="1">
 
-# 1. 저장소 복제 및 디렉토리 이동
-$git clone [https://github.com/choill89/movie-orbs.com.git$](https://github.com/choill89/movie-orbs.com.git$) cd movie-orbs.com
+본 프로젝트는 최신 웹 표준 기술과 강력한 프레임워크를 기반으로 구축되었습니다.
 
-# 2. 프로덕션 환경 수준의 의존성 라이브러리 검증 및 설치
-$ npm ci
+| 분류 | 기술 기술 (Tech) | 용도 |
+| :--- | :--- | :--- |
+| **Frontend** | React.js / Next.js | 컴포넌트 기반 UI 개발 및 SSR/SEO 최적화 |
+| **Styling** | Tailwind CSS / Styled-components | 반응형 디자인 및 인터랙티브 스타일링 |
+| **Visuals** | Three.js / React Three Fiber (R3F) | 3D Orb 및 시각적 애니메이션 구현 |
+| **State** | Zustand / Redux Toolkit | 전역 상태 관리 및 데이터 흐름 제어 |
+| **API/Data** | TMDB API / Axios | 영화 메타데이터 인터페이싱 |
+| **Deployment**| Vercel / AWS | 프로덕션 환경 배포 및 호스팅 |
 
-# 3. 환경 변수 구성 예시 (.env.local)
-$ cat <<EOF > .env.local
-NEXT_PUBLIC_TMDB_API_KEY=your_secured_tmdb_api_key_here
-NEXT_PUBLIC_APP_ENV=development
-EOF
+</div>
+</details>
 
-# 4. 개발 서버 구동 (포트 : 3000)
-$ npm run dev
-# 빌드 스크립트 실행 (Next.js 빌드 및 Three.js 최적화 포함)
-$ npm run build
+<details>
+<summary>🌟 3. 핵심 기능 (Key Features)</summary>
+<div id="features" markdown="1">
 
-# 최적화된 프로덕션 서버 미리보기 실행
+* **🔮 인터랙티브 Orb UI:** 최신 인기 영화, 장르별 영화를 회전하고 움직이는 3D 입체 오브 형태로 시각화합니다.
+* **🔍 실시간 스마트 검색:** 초성 검색 및 영/한 키워드 매칭을 통해 원하는 영화를 실시간으로 찾아냅니다.
+* **🎞️ 상세 정보 모달:** 영화의 예고편, 줄거리, 출연진, 평점 및 리뷰를 한눈에 확인할 수 있는 몰입형 모달을 제공합니다.
+* **📌 나만의 컬렉션 (북마크):** 관심 있는 영화 오브를 개인 보관함에 담아두고 언제든 꺼내볼 수 있습니다.
+* **🌓 다크/라이트 모드:** 사용자의 시각적 편안함을 위한 반응형 테마 스위칭을 지원합니다.
 
+</div>
+</details>
 
-{
-  "movie_id": "string (UUID v4 형식)",
-  "vector_coordinates": {
-    "x": "float32 (범위: -50.0 ~ 50.0)",
-    "y": "float32 (범위: -50.0 ~ 50.0)",
-    "z": "float32 (범위: -50.0 ~ 50.0)"
-  },
-  "render_properties": {
-    "orb_color": "hex_string",
-    "glow_intensity": "float (0.0 ~ 1.0)",
-    "scale_factor": "float"
-  }
-}$ npm run start
+<details>
+<summary>🚀 4. 시작 가이드 (Getting Started)</summary>
+<div id="getting-started" markdown="1">
+
+로컬 환경에서 프로젝트를 실행하려면 아래 단계를 따르세요.
+
+### **사전 준비 사항 (Prerequisites)**
+* Node.js (v18 이상 권장)
+* npm 또는 yarn / pnpm
+* [TMDB API Key](https://www.themoviedb.org/documentation/api)
+
+### **설치 및 실행 (Installation)**
+
+1. **저장소 클론**
+   ```bash
+   git clone [https://github.com/choill89/movie-orbs.com.git](https://github.com/choill89/movie-orbs.com.git)
+   cd movie-orbs.com
