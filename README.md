@@ -55,27 +55,3 @@
 
 ### **사전 준비 사항 (Prerequisites)**
 * Node.js (v18 이상 권장)
-
-npm install
-# 또는
-yarn install
-
-NEXT_PUBLIC_TMDB_API_KEY=your_tmdb_api_key_here
-NEXT_PUBLIC_API_BASE_URL=[https://api.themoviedb.org/3](https://api.themoviedb.org/3)
-
-npm run dev
-# 또는
-yarn dev
-
-[movie-orbs.com/](https://movie-orbs.com/)
-├── public/              # 정적 자원 (이미지, 아이콘 등)
-├── src/
-│   ├── components/      # 공통 및 인터랙티브 UI 컴포넌트 (Orb, Modal 등)
-│   ├── hooks/           # 커스텀 훅 (API 페칭, 이벤트 핸들러)
-│   ├── pages/           # Next.js 라우팅 페이지
-│   ├── styles/          # 글로벌 스타일 및 테마 설정
-│   ├── store/           # Zustand/Redux 전역 상태 관리
-│   └── utils/           # 공통 유틸리티 함수
-├── .env.example         # 환경변수 샘플 파일
-├── tailwind.config.js   # Tailwind CSS 설정
-└── README.md
